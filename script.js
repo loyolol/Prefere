@@ -14,7 +14,7 @@ function updateHeaderLayout() {
     if (window.innerWidth <= 865) {
         if (!document.querySelector('.header-menu-icon')) {
             const img = document.createElement('img');
-            img.src = 'photo/menu.png';
+            img.src = 'photo/menu.svg';
             img.alt = 'Menu Icon';
             img.classList.add('header-menu-icon');
             img.style.width = '32px';
@@ -75,25 +75,3 @@ function updateLayout() {
         removeFilterButtons();
     }
 }
-
-function removeFilterButtons() {
-    const sectionTitles = document.querySelectorAll('.section-title');
-
-    sectionTitles.forEach(sectionTitle => {
-        // Retrieve the container if it exists
-        const titleContainer = sectionTitle.parentNode;
-        if (titleContainer.classList.contains('section-title-container')) {
-            // Retrieve the filter button
-            const filterButton = titleContainer.querySelector('.filter-button');
-
-            // Restore the original structure if the filter button exists
-            if (filterButton) {
-                titleContainer.parentNode.insertBefore(sectionTitle, titleContainer); // Move the title before the container
-                titleContainer.remove(); // Delete the container
-            }
-        }
-    });
-}
-
-window.addEventListener('load', updateLayout);
-window.addEventListener('resize', updateLayout);
