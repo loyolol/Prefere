@@ -782,7 +782,7 @@ h2 {
 
     .header-left {
         margin-right: 50px;
-        margin-left: 10px;
+        margin-left: 0px;
     }
 
     .header-search {
@@ -794,13 +794,13 @@ h2 {
     }
 
     .header-logo img {
-        height: 50px;
-        width: 50px;
-        margin-right: 16px;
+        height: 45px;
+        width: 45px;
+        margin-right: 10px;
     }
 
     .header-logo span {
-        font-size: 30px;
+        font-size: 28px;
     }
 }
 
@@ -896,7 +896,7 @@ h2 {
         border: none;
         padding: 0;
         cursor: pointer;
-        background-image: url('photo/filter.png');
+        background-image: url('photo/filter.svg');
         background-size: cover;
         background-repeat: no-repeat;
         order: 2;
