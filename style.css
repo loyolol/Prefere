@@ -979,6 +979,12 @@ h2 {
     margin-left: 15px;
 }
 
+@media (min-width: 866px) {
+    .mobile-menu {
+        display: none !important;
+    }
+}
+
 @media (max-width: 751px) {
     .footer {
         flex-direction: column;
