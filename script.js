@@ -3,48 +3,107 @@ function updateHeaderLayout() {
     if (!headerRight) return;
 
     const headerMiddle = document.querySelector('.header-middle');
-    const headerSearch = document.querySelector('.header-search');
 
+    // Скрываем или показываем header-middle
     if (headerMiddle) {
         headerMiddle.style.display = window.innerWidth <= 865 ? 'none' : 'flex';
     }
 
-    if (window.innerWidth <= 865) {
-        if (!document.querySelector('.header-menu-button')) {
-            const button = document.createElement('button');
-            button.classList.add('header-menu-button');
-            button.style.background = 'none';
-            button.style.border = 'none';
-            button.style.cursor = 'pointer';
+    // Determine if screen is <= 500px
+    const isSmallScreen = window.innerWidth <= 500;
 
-            const img = document.createElement('img');
-            img.src = 'photo/menu.svg';
-            img.alt = 'Menu Icon';
-            img.classList.add('header-menu-icon');
-            img.style.width = '32px';
-            img.style.height = '30px';
-            img.style.marginRight = '30px';
-
-            button.appendChild(img);
-            headerRight.appendChild(button);
-
-            button.addEventListener('click', () => {
-                toggleMobileMenu(); 
-            });
-        }
-    } else {
+    // Remove the image and menu button on larger screens (if they exist)
+    if (window.innerWidth > 865) {
         const menuButton = document.querySelector('.header-menu-button');
+        const imageDiv = document.querySelector('.header-image-container-left');
+
         if (menuButton) {
             menuButton.remove();
         }
+        if (imageDiv) {
+            imageDiv.remove();
+        }
+
+        return; // Exit the function
     }
 
+    // Code for small screens (<= 865px)
+    if (!document.querySelector('.header-menu-button') && window.innerWidth <= 865) {
+        // Create the menu button
+        const headerMenuButton = document.createElement('button');
+        headerMenuButton.classList.add('header-menu-button');
+        headerMenuButton.style.background = 'none';
+        headerMenuButton.style.border = 'none';
+        headerMenuButton.style.cursor = 'pointer';
+
+        const menuImg = document.createElement('img');
+        menuImg.src = 'photo/menu.svg';
+        menuImg.alt = 'Menu Icon';
+        menuImg.classList.add('header-menu-icon');
+        menuImg.style.width = '32px';
+        menuImg.style.height = '30px';
+        menuImg.style.marginRight = '10px';
+
+        headerMenuButton.appendChild(menuImg);
+
+        // Create and show/hide the image based on screen width
+        const imageDiv = document.createElement('div');
+        imageDiv.classList.add('header-image-container-left');
+
+        //create button
+        const imageButton = document.createElement('button');
+        imageButton.style.background = 'none';
+        imageButton.style.border = 'none';
+        imageButton.style.padding = '0';
+        imageButton.style.cursor = 'pointer';
+        // **Оставим пустым обработчик события, чтобы ничего не происходило**
+        imageButton.addEventListener('click', () => {
+           //Do nothing
+        });
+
+        const image = document.createElement('img');
+        image.src = 'photo/search2.svg'; // Your image URL
+        image.alt = 'Your Description';
+        imageButton.appendChild(image);
+        imageDiv.appendChild(imageButton)
+
+        // Determine where to insert the image depending on whether search is hidden
+        const headerRightContent = headerRight.querySelector('.header-right-content');
+        const headerSearch = headerRight.querySelector('.header-search');
+
+        if (headerRightContent) {
+            if (isSmallScreen) {
+                headerRightContent.insertBefore(imageDiv, headerSearch); // Insert before search
+            }
+            headerRightContent.appendChild(headerMenuButton);
+        }
+
+        headerMenuButton.addEventListener('click', () => {
+            toggleMobileMenu(); // Function to handle menu toggle
+        });
+    }
+
+    // Show/hide the image depending on screen width
+    const imageDiv = document.querySelector('.header-image-container-left');
+    if (imageDiv) {
+        imageDiv.style.display = isSmallScreen ? 'flex' : 'none';
+    }
+
+    // Устанавливаем отступ
+    const headerSearch = document.querySelector('.header-search');
     if (headerSearch) {
         headerSearch.style.marginLeft = (window.innerWidth <= 700) ? '15px' : '20px';
     }
 }
 
-// Функция для создания мобильного меню
+function toggleSearch() {
+    const headerSearch = document.querySelector('.header-search');
+    if (headerSearch) {
+        headerSearch.style.display = headerSearch.style.display === 'none' ? 'flex' : 'none';
+    }
+}
+
+
 function createMobileMenu() {
     const mobileMenu = document.createElement('div');
     mobileMenu.classList.add('mobile-menu');
@@ -77,16 +136,16 @@ function createMobileMenu() {
     closeButton.style.color = '#333';
 
     closeButton.addEventListener('click', () => {
-        toggleMobileMenu(); 
+        toggleMobileMenu(); // Закрываем меню при клике на крестик
     });
 
-    mobileMenu.appendChild(closeButton); 
+    mobileMenu.appendChild(closeButton); // Добавляем кнопку закрытия в меню
 
     const headerMiddle = document.querySelector('.header-middle');
     if (headerMiddle) {
-        const navClone = headerMiddle.querySelector('.header-nav').cloneNode(true); 
-        navClone.style.flexDirection = 'column'; 
-        navClone.style.marginRight = '20px'; 
+        const navClone = headerMiddle.querySelector('.header-nav').cloneNode(true); // Клонируем навигацию
+        navClone.style.flexDirection = 'column'; // Выстраиваем ссылки вертикально
+        navClone.style.marginRight = '20px'; // Добавляем margin справа
 
         // Убираем margin у ссылок
         const links = navClone.querySelectorAll('a');
@@ -116,7 +175,6 @@ function toggleMobileMenu() {
         }
     }
 }
-
 
 function addFilterButtons() {
     const actionsSection = document.querySelector('.actions-section');
