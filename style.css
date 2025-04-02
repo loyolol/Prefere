@@ -61,6 +61,8 @@ body {
 
 .header-right {
     justify-content: flex-end;
+    display: flex;
+    align-items: center;
 }
 
 .header-logo {
@@ -272,7 +274,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-sizing: border-box;
 }
 
 .product-card img {
@@ -506,6 +507,32 @@ h2 {
     margin-bottom: 5px;
 }
 
+.header-image-container-left {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px; /* Spacing from the menu button */
+    display: none; /* Hidden by default */
+}
+
+.header-image-container-left img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Style for menu button */
+.header-menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    /* Add more styles if needed */
+}
+
+/* Container for image and search */
+.header-right-content {
+    display: flex;
+    align-items: center;
+}
 
 @media (max-width: 1555px) {
 
@@ -676,65 +703,6 @@ h2 {
     }
 }
 
-
-@media (max-width: 450px) {
-
-    .header-logo {
-        font-size: 18px;
-    }
-
-    .header-logo img {
-        height: 40px;
-        /* Smaller image */
-        width: 40px;
-        /* Smaller image */
-        margin-right: 4px;
-    }
-
-    .header-logo span {
-        font-size: 20px;
-    }
-
-    .header-right {
-        padding-right: 10px;
-    }
-
-    .header-search input {
-        font-size: 16px;
-        /* Smaller font size */
-        padding: 6px 8px;
-        /* Smaller padding */
-    }
-
-    .header-search input::placeholder {
-        font-size: 14px;
-    }
-
-    .hero-text-block {
-        width: 300px;
-        height: 200px;
-        font-size: 14px;
-    }
-
-    .hero-text-block .hero-prefere {
-        font-size: 20px;
-    }
-
-    .hero-text-block p {
-        font-size: 14px;
-    }
-
-    .header-search button {
-        width: 22px;
-        height: 19px;
-    }
-
-    .header-search button img {
-        max-width: 80%;
-        max-height: 80%;
-    }
-}
-
 @media (max-width: 472px) {
     .product-card img {
         margin-bottom: 10px;
@@ -775,32 +743,6 @@ h2 {
         width: 35px;
         height: 33px;
         margin-left: 5px;
-    }
-}
-
-@media (max-width: 400px) {
-
-    .header-left {
-        margin-right: 50px;
-        margin-left: 0px;
-    }
-
-    .header-search {
-        display: none;
-    }
-
-    .header-logo {
-        font-size: 16px;
-    }
-
-    .header-logo img {
-        height: 45px;
-        width: 45px;
-        margin-right: 10px;
-    }
-
-    .header-logo span {
-        font-size: 28px;
     }
 }
 
@@ -1040,8 +982,23 @@ h2 {
         max-height: 55%;
     }
 }
+@media (min-width: 501px) {  /* Added this media query */
+    .header-image-container-left {
+        display: none !important; /* Hide it for larger screens */
+    }
+}
 
+/* This block now targets screens 500px and smaller AND includes !important */
 @media (max-width: 500px) {
+    .header-content {
+        padding-left: 0px; /* Add left padding */
+        padding-right: 10px; /* Add right padding */
+    }
+    
+    .header-right {
+        margin-right: 10px;
+    }
+
     .footer-buttons {
         margin-left: var(--left-offset);
     }
@@ -1069,8 +1026,64 @@ h2 {
         text-align: center;
         flex-grow: 1;
     }
-}
 
+    .header-left {
+        margin-right: 10px;
+    }
+
+    .header-search {
+        display: none; /* Hide search */
+    }
+
+    .header-image-container-left {
+        display: flex !important; /* Show image */
+        width: 30px;  /* Smaller width */
+        height: 30px; /* Smaller height */
+        margin-right: 15px; /* Less spacing from the menu button */
+    }
+
+    .header-menu-button {
+        padding: 0; /* Remove padding */
+        width: 30px; /* Set width */
+        height: 30px; /* Set height */
+    }
+
+    .header-menu-button img {
+        width: 100%; /* Make the image fill the button */
+        height: 100%; /* Make the image fill the button */
+        max-width: 90%; /* Reduce image size */
+        max-height: 90%; /* Reduce image size */
+    }
+
+    /* Change header right to properly align menu and image */
+
+    /* Styles for buttons */
+    .header-nav a {
+        font-size: 16px; /* Smaller font size */
+        margin: 0 6px; /* Less space between buttons */
+        padding: 4px 8px; /* Add some padding to maintain button size */
+    }
+
+    .header-nav a img {
+        max-width: 90%;  /* Reduce image size */
+        max-height: 90%; /* Reduce image size */
+    }
+
+    .hero-text-block {
+        width: 300px;
+        height: 200px;
+        font-size: 14px;
+    }
+
+    .hero-text-block .hero-prefere {
+        font-size: 20px;
+    }
+
+    .hero-text-block p {
+        font-size: 14px;
+    }
+    
+}
 
 @media (max-width: 472px) {
     .product-card h3 {
@@ -1111,5 +1124,40 @@ h2 {
 
     .old-price {
         font-size: 10px;
+    }
+}
+
+/* Стили для кнопок фильтрации */
+.filter-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.filter-buttons .button {
+    flex: 1;
+    margin: 0 5px;
+    /* Уменьшаем высоту кнопки */
+    height: 40px;
+    padding: 5px 15px; /* Увеличиваем отступы от краев */
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-buttons .button img {
+    margin-left: auto;
+}
+
+/* Скрываем кнопки фильтрации после 900px */
+@media (max-width: 900px) {
+    .filter-buttons {
+        display: none;
     }
 }
