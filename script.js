@@ -58,7 +58,7 @@ function updateHeaderLayout() {
         imageButton.style.cursor = 'pointer';
         // **Оставим пустым обработчик события, чтобы ничего не происходило**
         imageButton.addEventListener('click', () => {
-           //Do nothing
+            //Do nothing
         });
 
         const image = document.createElement('img');
@@ -228,8 +228,24 @@ function removeFilterButtons() {
     });
 }
 
+// Добавленная функция для выбора изображений
+function setupAdditionalImageSelection() {
+    const mainImage = document.querySelector('.product-images .main-image');
+    const additionalImages = document.querySelectorAll('.product-images .additional-images img');
+
+    if (!mainImage || !additionalImages.length) return;
+
+    additionalImages.forEach(img => {
+        img.addEventListener('click', () => {
+            mainImage.src = img.src;
+        });
+    });
+}
+
 window.addEventListener('load', () => {
     updateLayout();
     createMobileMenu(); // Создаем мобильное меню при загрузке страницы
+    setupAdditionalImageSelection(); // Настраиваем выбор изображений
 });
+
 window.addEventListener('resize', updateLayout);
