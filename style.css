@@ -1161,3 +1161,432 @@ h2 {
         display: none;
     }
 }
+.product-page {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Product Details Section */
+.product-details {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.product-images {
+    width: 40%;
+    display: flex;
+}
+
+.product-images .additional-images {
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+.product-images .additional-images img {
+    width: 70px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-images .main-image {
+    width: 80%;
+    /* Make main image smaller */
+    max-width: 393px;
+    /* Make main image smaller */
+    max-height: 371px;
+    /* Make main image smaller */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+    width: 60%;
+    display: flex;
+}
+
+.product-info-left {
+    flex: 1;
+}
+
+.product-info-left .product-title {
+    font-size: 1.3em;
+    /* Make product title even smaller */
+    font-weight: normal;
+    /* Make font weight thinner */
+    margin-bottom: 10px;
+    color: #313A12;
+}
+
+.product-info-left .rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.product-info-left .rating .stars {
+    display: inline-block;
+}
+
+.product-info-left .rating .stars .star {
+    color: #749C04;
+    font-size: 1.2em;
+    margin-right: 2px;
+}
+
+.product-info-left .rating a {
+    color: #749C04;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.product-info-left .properties {
+    font-size: 1.1em;
+    color: #313A12;
+    margin-bottom: 20px;
+}
+
+.product-info-left .properties p {
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.product-info-left .properties p::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #313A12;
+}
+
+.product-info-right {
+    width: 40%;
+    display: flex;
+    /* Включаем flexbox */
+    flex-direction: column;
+    /* Выстраиваем элементы в колонку */
+    justify-content: flex-start;
+    /* Выравниваем по верхнему краю */
+    align-items: stretch;
+    /* Растягиваем элементы по ширине */
+}
+
+.price-and-buy {
+    text-align: left;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    /* Включаем flexbox */
+    flex-direction: column;
+    /* Выстраиваем элементы в колонку */
+    gap: 10px; /*  Добавляет расстояние между элементами внутри price-and-buy */
+}
+
+.price-and-buy .price-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.price-and-buy .old-price {
+    font-size: 16px;
+    color: #313A12;
+    text-decoration: line-through;
+    margin-right: 15px;
+}
+
+.price-and-buy .price {
+    font-size: 22px;
+    color: #749C04;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.custom-image-button {
+    width: 100%;
+    height: auto;
+    max-width: 320px;
+    max-height: 50px;
+    cursor: pointer;
+    border-radius: 30px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.discount-button {
+    background-color: #749C04;
+    color: white;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 5px;
+    max-width: 320px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0px;
+    margin-right: auto;
+    box-sizing: border-box;
+    font-size: 25px;
+}
+
+.discount-button img {
+    margin-left: 12px;
+    max-height: 100%;
+    max-width: 20%;
+}
+
+.price-and-buy .buy-button,
+.price-and-buy .add-to-cart-button,
+.price-and-buy .delivery-info {
+    /* Стиль для delivery-info */
+    background-color: #749C05;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    /* Занимают всю ширину */
+    max-width: 320px; /*  Ограничиваем ширину, как у изображения */
+    height: 50px; /*  Задаем высоту, как у изображения */
+    box-sizing: border-box;
+    /* Учитываем padding и border */
+    text-align: center;
+    /* Центрируем текст */
+    display: flex; /*  Используем flexbox для выравнивания текста */
+    align-items: center; /*  Выравниваем по вертикали */
+    justify-content: center; /*  Выравниваем по горизонтали */
+}
+
+.price-and-buy .add-to-cart-button {
+    background-color: #749C05;
+}
+
+.price-and-buy .buy-button:hover,
+.price-and-buy .add-to-cart-button:hover {
+    background-color: #a1c14d;
+}
+
+.price-and-buy .delivery-info {
+    background-color: transparent;
+    /* Прозрачный фон */
+    color: #313A12;
+    border: none;
+    /* Убираем рамку */
+    font-size: 1em;
+    margin-top: 0;
+    /* Убираем верхний отступ */
+    padding: 0;
+    /* Убираем внутренние отступы */
+    cursor: default;
+    /* Меняем курсор */
+}
+
+/* Обновленный стиль для карточки отзыва */
+.review-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 15px;
+    width: 380px; /* Уменьшенная ширина карточки */
+    height: 180px; /* Уменьшенная высота карточки */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0;
+    margin-right: 10px;
+    box-sizing: border-box; /* Важно, чтобы padding не увеличивал общую ширину */
+    position: relative; /* Добавлено для обрезки контента внутри */
+    overflow: hidden; /* Скрываем контент, выходящий за пределы */
+}
+
+.reviews {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.reviews h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #313A12;
+}
+
+.rating-overall {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #313A12;
+}
+
+.rating-overall .stars .star {
+    color: #749C04;
+    font-size: 18px;
+}
+
+.rating-overall a {
+    color: #749C04;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.reviews-container {
+    display: flex; /* Используем flexbox для выравнивания карточек в ряд */
+    gap: 20px;
+    overflow-x: auto; /* Добавляем горизонтальную прокрутку */
+    padding-bottom: 10px;
+    width: 100%;    /* Растягиваем контейнер на всю ширину */
+    justify-content: flex-start; /* Выравниваем карточки по левому краю */
+}
+
+.reviews-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.reviews-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.reviews-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.reviews-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.review-author {
+    font-size: 14px;
+    font-weight: bold;
+    color: #313A12;
+    margin-bottom: 5px;
+}
+
+.review-rating {
+    margin-bottom: 8px;
+}
+
+.review-rating .star {
+    color: #749C04;
+    font-size: 16px;
+}
+
+.review-text {
+    font-size: 14px;
+    color: #313A12;
+    line-height: 1.4;
+    max-height: 80px;  /* Ограничение высоты текста */
+    overflow: hidden;         /* Скрываем переполнение текста */
+    text-overflow: ellipsis; /* Добавляем многоточие */
+    display: -webkit-box;   /* Используем webkit-box для многострочного обрезания */
+    -webkit-line-clamp: 4;  /* Ограничиваем до 4 строк */
+    -webkit-box-orient: vertical; /* Устанавливаем вертикальное направление */
+}
+
+.all-reviews-button {
+    background-color: #749C05;
+    color: white;
+    border: none;
+    padding: 5px 20px; /* Как у кнопки "Смотреть ещё" */
+    border-radius: 20px;  /* Как у кнопки "Смотреть ещё" */
+    cursor: pointer;
+    font-size: 25px; /* Как у кнопки "Смотреть ещё" */
+    display: flex;       /* Для выравнивания текста и картинки */
+    align-items: center;   /* Выравнивание по вертикали */
+    justify-content: center;
+    margin: 20px 0 0 0;      /* Убираем автоматическое центрирование, прижимаем к левому краю */
+    text-align: center;   /* Текст остаётся центрированным внутри кнопки */
+    width: auto;         /* Автоматическая ширина под контент */
+    height: 50px;
+}
+
+.all-reviews-button img {
+    margin-left: 12px;  /* Как у кнопки "Смотреть ещё" */
+    max-height: 100%;   /* Как у кнопки "Смотреть ещё" */
+    max-width: 20%;    /* Как у кнопки "Смотреть ещё" */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .reviews-container {
+        flex-wrap: nowrap;
+    }
+
+    .review-card {
+        width: 300px; /* Адаптивная ширина для маленьких экранов */
+        height: auto;   /* Автоматическая высота для содержания */
+        padding: 10px;
+    }
+
+    .review-text {
+        font-size: 12px;
+    }
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 900px) {
+    .product-details {
+        flex-direction: column;
+    }
+
+    .product-images,
+    .product-info {
+        width: 100%;
+    }
+
+    .product-images .additional-images {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    .product-images .additional-images::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    .product-images .additional-images::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .product-images .additional-images::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    .product-images .additional-images::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    .reviews .review {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .reviews .review {
+        width: 100%;
+    }
+
+    .similar-products .all-categories {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.rating .star.half::after {
+    content: '\2042';
+    position: absolute;
+    color: gold;
+}
+.similar-products h2 {
+    color: #313A12; /* Цвет как у заголовка "Отзывы" */
+}
+.product-info-left .product-title {
+    color: #313A12; /* Цвет как у заголовка "Отзывы" */
+}
